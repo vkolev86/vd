@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import Img from "../img/img.png";
 // import Attach from "../img/attach.png";
+import Picker from 'emoji-picker-react';
 import { AuthContext } from "../context/AuthContext";
 import { ChatContext } from "../context/ChatContext";
 import {
@@ -16,10 +17,16 @@ import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
 const Input = () => {
   const [text, setText] = useState("");
+  const [showPicker, setShowPicker] = useState(false);
   const [img, setImg] = useState(null);
 
   const { currentUser } = useContext(AuthContext);
   const { data } = useContext(ChatContext);
+
+  const onEmojiClick = (event) => {
+    setText((prevInput) => prevInput + event.emoji);
+    setShowPicker(false);
+  };
 
   const handleSend = async () => {
     if (img) {
@@ -73,6 +80,7 @@ const Input = () => {
     setText("");
     setImg(null);
   };
+
   return (
     <div className="input">
       <textarea 
@@ -82,6 +90,14 @@ const Input = () => {
         value={text}
       />
       <div className="send">
+        <img
+          className="emoji-icon"
+          src="https://icons.getbootstrap.com/assets/icons/emoji-smile.svg"
+          onClick={() => setShowPicker((val) => !val)}
+        />
+        {showPicker && (
+          <Picker pickerStyle={{ width: "100%" }} onEmojiClick={onEmojiClick} />
+        )}
         {/* <img src={Attach} alt="" /> */}
         <input
           type="file"

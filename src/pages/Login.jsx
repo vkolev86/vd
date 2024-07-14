@@ -30,7 +30,7 @@ const Login = () => {
           <button>Вход</button>
           {err && <span>Грешен имейл или парола!</span>}
         </form>
-        <p>Нямате акаунт? <Link to="/register">Регистрирайте се!</Link></p>
+        <p>Нямате акаунт? <Link to="register">Регистрирайте се!</Link></p>
       </div>
     </div>
   );

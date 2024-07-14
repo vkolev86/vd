@@ -6,7 +6,7 @@ import Chats from "./Chats"
 const Sidebar = (props) => {
   return (
     // <div className="sidebar">
-    <div className={`sidebar ${props.isOpen === true ? 'active' : ''}`}>
+    <div className={`sidebar ${props.isOpen === true ? 'hidden' : ''}`}>
       <Navbar/>
       <Search/>
       <Chats/>

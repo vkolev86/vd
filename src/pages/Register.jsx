@@ -78,7 +78,7 @@ const Register = () => {
           {err && <span>Възникна грешка!</span>}
         </form>
         <p>
-          Имате акаунт? <Link to="/login">Вход</Link>
+          Имате акаунт? <Link to="login">Вход</Link>
         </p>
       </div>
     </div>

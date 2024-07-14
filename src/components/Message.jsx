@@ -1,4 +1,6 @@
 import React, { useContext, useEffect, useRef } from "react";
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 import moment from 'moment'
 import { AuthContext } from "../context/AuthContext";
 import { ChatContext } from "../context/ChatContext";
