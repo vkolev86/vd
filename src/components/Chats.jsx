@@ -10,6 +10,15 @@ const Chats = () => {
   const { currentUser } = useContext(AuthContext);
   const { dispatch } = useContext(ChatContext);
 
+  let sidebarObj;
+    function onCreate() {
+        sidebarObj.element.style.visibility = '';
+    }
+    // Toggle(Open/Close) the Sidebar
+    function toggleClick() {
+      sidebarObj.toggle();
+  }
+
   useEffect(() => {
     const getChats = () => {
       const unsub = onSnapshot(doc(db, "userChats", currentUser.uid), (doc) => {
@@ -29,7 +38,7 @@ const Chats = () => {
   };
 
   return (
-    <div className="chats">
+      <div className="chats">
       {Object.entries(chats)?.sort((a,b)=>b[1].date - a[1].date).map((chat) => (
         <div
           className="userChat"

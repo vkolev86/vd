@@ -96,7 +96,19 @@ const Input = () => {
           onClick={() => setShowPicker((val) => !val)}
         />
         {showPicker && (
-          <Picker pickerStyle={{ width: "100%" }} onEmojiClick={onEmojiClick} />
+          <Picker 
+          // rows={4}
+          // perRow={8}
+          // height={1000}
+          // width={400}
+          // reactionsDefaultOpen={true}
+          emojiStyle="apple"
+          emojiSize={24}
+          searchDisabled={true}
+          // pickerStyle={{ position: 'absolute', bottom: '20px', right: '20px' }}
+          // pickerStyle={{ width: "100%" }} 
+          onEmojiClick={onEmojiClick}
+          />
         )}
         {/* <img src={Attach} alt="" /> */}
         <input
@@ -108,7 +120,7 @@ const Input = () => {
         <label htmlFor="file">
           <img src={Img} alt="" />
         </label>
-        <button onClick={handleSend}>Изпрати</button>
+        <button className="sendButton" onClick={handleSend}>Изпрати</button>
       </div>
     </div>
   );

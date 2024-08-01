@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,  useEffect } from 'react'
 import Sidebar from '../components/Sidebar'
 import Chat from '../components/Chat'
 import More from "../img/more.png";
@@ -9,14 +9,17 @@ const Home = () => {
     const ToggleSidebar = () => {
         isOpen === true ? setIsopen(false) : setIsopen(true);
     }
+    
   return (
     <div className='home'>
       <div className="container">
-        <Sidebar isOpen={isOpen}/>
-        <div className="sidebarIcons" onClick={()=>ToggleSidebar()}>
-          <img src={More} alt="" onClick={()=>ToggleSidebar()}/>
+        <div onClick={()=>{setIsopen(!isOpen)}}>
+          <Sidebar isOpen={isOpen} />
         </div>
-        <Chat/>
+        <div className="sidebarIcons">
+          <img src={More} alt="" onClick={()=>{setIsopen(!isOpen)}}/>
+        </div>
+        <Chat />
       </div>
     </div>
   )
